@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #303640;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    gap: 2.5rem;
+    margin: 50px auto;
+    padding: 2rem;
+    position: relative;
+}
+
+.circles {
+    background-color: #303640;
+    border-radius: 100%;
+    border: 10px solid #000000;
+    min-width: 15rem;
+    min-height: 15rem;
+    padding: 10px;
+}
+
+.circles > * {
+    position: relative;
+    top: 4.5rem;
+    text-align: center;
+}
+
+.circles > h2 {
+    font-size: 3.5rem;
+}
+
+.circle-1 {
+    border: 10px solid #fd2970;
+}
+
+.circle-2 {
+    border: 10px solid #fce600;
+
+}
+
+.circle-3 {
+    border: 10px solid #06fc3f;
+}
+
+.dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: #252020;
+    position: relative;
+    left: 44%;
+    top: -1%;
+    animation: move 3s infinite linear;
+}
+
+.dot-1 {
+    box-shadow: 1px 1px 26px 7px rgba(253, 41, 112, 1);
+}
+
+.dot-2 {
+    box-shadow: 1px 1px 26px 7px rgba(252, 230, 0, 1);
+}
+
+.dot-3 {
+    box-shadow: 1px 1px 26px 7px rgba(6, 252, 63, 1);
+}
+
+@keyframes move {
+    0% {
+        transform: rotate(0deg) translateX(7rem) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(7rem) rotate(-360deg);
+    }
+}
+
+
+#am-pm {
+    position: absolute;
+    top: 18px;
+    right: -50px;
+    font-size: 2.5rem;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
