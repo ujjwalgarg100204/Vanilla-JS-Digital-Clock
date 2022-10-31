@@ -20,11 +20,16 @@ function padWithZeroes(number, length) {
 
 setInterval(() => {
         const now = new Date();
-        ;
         setText(hour, padWithZeroes(now.getHours() - 12, 2));
         setText(minute, padWithZeroes(now.getMinutes(), 2));
         setText(second, padWithZeroes(now.getSeconds(), 2));
         setText(amPM, now.getHours() > 12 ? "PM" : "AM");
     },
     1000
+);
+
+setTimeout(
+    // FIXME: https://www.youtube.com/watch?v=eoSfzVz9ur0&ab_channel=OnlineTutorials
+    () => alert("Fix so that it looks like https://www.youtube.com/watch?v=eoSfzVz9ur0&ab_channel=OnlineTutorials"),
+    10000
 );
