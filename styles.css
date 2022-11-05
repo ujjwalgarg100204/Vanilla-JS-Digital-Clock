@@ -25,6 +25,41 @@ main {
     position: relative;
 }
 
+div[role="progressbar"] {
+    --size: 15rem;
+    --fg: #16571A;
+    --bg: #16171A;
+    --pgPercentage: var(--value);
+    animation: growProgressBar 3s 1 forwards;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(closest-side, #303640 90%, transparent 0 99.9%, #303640 0),
+    conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+    transition: all 1.5s linear;
+}
+
+div[role="progressbar"] {
+    position: absolute;
+    z-index: 0;
+    top: -0.58rem;
+    left: -0.59rem;
+}
+
+.circle-1 > div[role="progressbar"] {
+    --fg: rgba(253, 41, 112, 1);
+}
+
+.circle-2 > div[role="progressbar"] {
+    --fg: rgba(252, 230, 0, 1);
+}
+
+.circle-3 > div[role="progressbar"] {
+    --fg: rgba(6, 252, 63, 1);
+}
+
 .circles {
     background-color: #303640;
     border-radius: 100%;
@@ -32,6 +67,8 @@ main {
     min-width: 15rem;
     min-height: 15rem;
     padding: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .circles > * {
@@ -44,18 +81,6 @@ main {
     font-size: 3.5rem;
 }
 
-.circle-1 {
-    border: 10px solid #fd2970;
-}
-
-.circle-2 {
-    border: 10px solid #fce600;
-
-}
-
-.circle-3 {
-    border: 10px solid #06fc3f;
-}
 
 .dot {
     width: 25px;
@@ -65,18 +90,23 @@ main {
     position: relative;
     left: 44%;
     top: -1%;
-    animation: move 3s infinite linear;
+    transform: translateX(7rem);
+    transition: all 1s linear;
+    /*animation: move 3s linear;*/
 }
 
 .dot-1 {
+    background-color: #fd2970;
     box-shadow: 1px 1px 26px 7px rgba(253, 41, 112, 1);
 }
 
 .dot-2 {
+    background-color: rgba(252, 230, 0, 1);
     box-shadow: 1px 1px 26px 7px rgba(252, 230, 0, 1);
 }
 
 .dot-3 {
+    background-color: rgba(6, 252, 63, 1);
     box-shadow: 1px 1px 26px 7px rgba(6, 252, 63, 1);
 }
 
@@ -84,8 +114,17 @@ main {
     0% {
         transform: rotate(0deg) translateX(7rem) rotate(0deg);
     }
+    /*100% {*/
+    /*    transform: rotate(360deg) translateX(7rem) rotate(-360deg);*/
+    /*}*/
+}
+
+@keyframes growProgressBar {
+    0%, 33% {
+        --pgPercentage: 0;
+    }
     100% {
-        transform: rotate(360deg) translateX(7rem) rotate(-360deg);
+        --pgPercentage: var(--value);
     }
 }
 
