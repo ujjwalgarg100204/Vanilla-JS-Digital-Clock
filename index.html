@@ -1,41 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Digital Clock using Vanilla JS</title>
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-    <script src="app.js" defer></script>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Digital Clock using Vanilla JS</title>
+		<link
+			rel="shortcut icon"
+			href="./images/logo.png"
+			type="image/x-icon"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							"light-gray": "#303640",
+							seconds: "rgba(6, 252, 63, 1)",
+							minutes: "rgba(252, 230, 0, 1)",
+							hours: "rgba(253, 41, 112, 1)",
+						},
+						fontFamily: {
+							body: ["Ubuntu", "sans-serif"],
+						},
+					},
+				},
+			};
+		</script>
+		<link rel="stylesheet" href="./styles.css" />
+		<script src="./app.js" defer></script>
+	</head>
+	<body
+		class="min-h-screen grid place-content-center bg-light-gray space-y-10 font-body text-white"
+	>
+		<main class="container flex flex-col lg:flex-row gap-8 lg:gap-10">
+			<article
+				class="relative w-48 h-48 lg:w-56 lg:h-56 xl:w-60 xl:h-60 inline-grid place-content-center text-center border-8 border-[#191919] rounded-full before:rounded-full after:rounded-full after:absolute before:absolute before:-inset-2 pie no-round"
+				style="--p: 20; --c: rgba(253, 41, 112, 1)"
+			>
+				<span
+					class="absolute inset-0 w-full h-full before:absolute before:inset-0 before:w-7 before:h-7 before:left-[4.5rem] lg:before:left-24 before:-top-4 before:bg-hours before:rounded-full transition-all duration-500 dot"
+					id="dot-hour"
+				></span>
+				<h3
+					class="font-bold text-base lg:text-lg xl:text-xl flex flex-col gap-1 lg:gap-3"
+				>
+					<span
+						class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+						id="hour"
+					></span>
 
-<main>
-    <div class="circles circle-1">
-        <div role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="--value:30"></div>
-        <h2 id="hour" class="number">02</h2>
-        <p class="time">Hours</p>
-        <div class="dot dot-1"></div>
-    </div>
-    <div class="circles circle-2">
-        <div role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="--value:30"></div>
-        <h2 id="minute" class="number">43</h2>
-        <p class="time">Minutes</p>
-        <div class="dot dot-2"></div>
-    </div>
-    <div class="circles circle-3">
-        <div role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="--value:30"></div>
-        <h2 id="second" class="number">15</h2>
-        <p class="time">Seconds</p>
-        <div class="dot dot-3"></div>
-    </div>
-    <h3 id="am-pm" class="time">PM</h3>
-</main>
+					<span>HOURS</span>
+				</h3>
+			</article>
+			<article
+				class="relative w-48 h-48 lg:w-56 lg:h-56 xl:w-60 xl:h-60 inline-grid place-content-center text-center border-8 border-[#191919] rounded-full before:rounded-full after:rounded-full after:absolute before:absolute before:-inset-2 pie no-round"
+				style="--p: 20; --c: rgba(252, 230, 0, 1)"
+			>
+				<span
+					class="absolute inset-0 w-full h-full before:absolute before:inset-0 before:w-7 before:h-7 before:left-[4.5rem] lg:before:left-24 before:-top-4 before:bg-minutes before:rounded-full transition-all duration-500 dot"
+					id="dot-minute"
+				></span>
+				<h3
+					class="font-bold text-base lg:text-lg xl:text-xl flex flex-col gap-1 lg:gap-3"
+				>
+					<span
+						class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+						id="minutes"
+					></span>
 
-<div class="attribution">
-    <p>Coded by <a href="https://github.com/ujjwalgarg100204">Ujjwal Garg</a>.</p>
-    <a href="https://www.flaticon.com/free-icons/digital-clock" title="digital clock icons">Digital clock icons created
-        by Freepik - Flaticon</a>
-</div>
+					<span>MINUTES</span>
+				</h3>
+			</article>
+			<article
+				class="relative w-48 h-48 lg:w-56 lg:h-56 xl:w-60 xl:h-60 inline-grid place-content-center text-center border-8 border-[#191919] rounded-full before:rounded-full after:rounded-full after:absolute before:absolute before:-inset-2 pie no-round"
+				style="--p: 20; --c: rgba(6, 252, 63, 1)"
+			>
+				<span
+					class="absolute inset-0 w-full h-full before:absolute before:inset-0 before:w-7 before:h-7 before:left-[4.5rem] lg:before:left-24 before:-top-4 before:bg-seconds before:rounded-full transition-all duration-500 dot"
+					id="dot-second"
+				></span>
+				<h3
+					class="font-bold text-base lg:text-lg xl:text-xl flex flex-col gap-1 lg:gap-3"
+				>
+					<span
+						class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+						id="seconds"
+					></span>
 
-</body>
+					<span>SECONDS</span>
+				</h3>
+			</article>
+			<article
+				class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl lg:relative absolute right-5"
+				id="ampm"
+			>
+				PM
+			</article>
+		</main>
+
+		<footer class="text-sm text-center">
+			Coded by
+			<a
+				href="https://github.com/ujjwalgarg100204"
+				class="font-serif text-blue-300 hover:text-blue-200 hover:underline"
+			>
+				Ujjwal Garg
+			</a>
+			.
+		</footer>
+	</body>
 </html>
